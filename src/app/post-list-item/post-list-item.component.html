@@ -1,0 +1,13 @@
+<li [ngClass]="{'list-group-item': true,
+                'list-group-item-success': post.loveIts > 0,
+                'list-group-item-danger': post.loveIts < 0}">
+  <h4 [ngStyle]="{color: getColor()}">{{ post.index }} - {{ post.title }}</h4>
+  <p class="dateTop">{{ post.created_at |date: 'short' }}</p>
+  <p class="heart">Love Count : {{ post.loveIts }}</p>
+  <p [ngStyle]="{color: getColor()}">{{ post.content }}</p>
+  <div class="d-flex justify-content-between">
+    <button class="btn btn-sm btn-success" (click)="addLove()">Love It !</button>
+    <button class="btn btn-sm btn-warning" (click)="removeLove()">Don't love It !</button>
+    <button class="btn btn-sm btn-danger" (click)="deletePost()">Delete this post</button>
+  </div>
+</li>
